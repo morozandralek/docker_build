@@ -3,23 +3,24 @@ pipeline {
         label 'node2'
     }
     stages {
-        stage('create mkdir') {
+        stage('Create volumes') {
             steps {
                 sh """
                 mkdir -p /var/lib/jenkins/path/to/movies
                 mkdir -p /var/lib/jenkins/path/to/downloadclient-downloads
                 mkdir -p /var/lib/jenkins/path/to/tvseries
+                mkdir -p /var/lib/jenkins/www
                 """
             }
         }
-        stage('clone repo github'){
+        stage('GitHub clone config'){
             steps {
                 sh """
                 git clone https://github.com/morozandralek/docker_build.git
                 """
             }
         }
-        stage('run docker-compose'){
+        stage('docker-compose UP'){
             steps{
                 sh """
                 cd docker_build
@@ -28,5 +29,11 @@ pipeline {
                 """
             }
         }
+        stage('Move index.html'){
+            steps{
+                sh """
+                cp docker_build/index.html www/
+                """
+            }
     }
 }

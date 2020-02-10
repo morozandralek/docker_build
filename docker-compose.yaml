@@ -12,8 +12,8 @@ services:
       - TZ=Europe/London
       - UMASK_SET=022
     volumes:
-      - /home/andrey_m/docker/14.Docker/docker-compose_1/path/to/movies:/movies
-      - /home/andrey_m/docker/14.Docker/docker-compose_1/path/to/downloadclient-downloads:/downloads
+      - /var/lib/jenkins/path/to/movies:/movies
+      - /var/lib/jenkins/path/to/downloadclient-downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -27,8 +27,8 @@ services:
       - TZ=Europe/London
       - UMASK_SET=022
     volumes:
-      - /home/andrey_m/docker/14.Docker/docker-compose_1/path/to/tvseries:/tv
-      - /home/andrey_m/docker/14.Docker/docker-compose_1/path/to/downloadclient-downloads:/downloads
+      - /var/lib/jenkins/path/to/tvseries:/tv
+      - /var/lib/jenkins/path/to/downloadclient-downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped

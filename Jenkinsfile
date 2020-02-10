@@ -32,7 +32,7 @@ pipeline {
         stage('Move index.html'){
             steps{
                 sh """
-                cp docker_build/index.html www/
+                cp docker_build/index.html /var/lib/jenkins/www/
                 """
             }
         }

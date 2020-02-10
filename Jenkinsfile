@@ -35,5 +35,6 @@ pipeline {
                 cp docker_build/index.html www/
                 """
             }
+        }
     }
 }

@@ -3,7 +3,7 @@ pipeline {
         label 'node2'
     }
     stages {
-        stage('Stop and remove docker') {
+        stage('Stop and remove docker'){
             steps {
                 sh """
                 docker stop $(docker ps -aq)

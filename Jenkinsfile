@@ -6,8 +6,6 @@ pipeline {
         stage('Check stop docker') {
             steps {
                 sh """
-                #docker stop "$(docker ps -aq)"
-                #docker rm "$(docker ps -aq)"
                 rm -rf docker_build/
                 """
             }

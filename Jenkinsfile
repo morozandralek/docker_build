@@ -6,7 +6,10 @@ pipeline {
         stage('Check stop docker') {
             steps {
                 sh """
-                rm -rf docker_build/
+                cd docker_build
+                docker-compose stop
+                docker-compose rm -f
+                rm -rf ../docker_build/
                 """
             }
         }
